@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "start": "node ./server/index.js",
-    "build": "del-cli dist/client/app/js && webpack --config webpack.config.dev.js --progress --profile --watch"
+    "clean": "del-cli .tmp",
+    "build": "npm run clean && npm run build:server && npm run build:client",
+    "build:client": "webpack --config webpack.config.dev.js --progress --profile --watch",
+    "build:server": "babel -d .tmp/server ./server -s"
   },
   "dependencies": {
     "@angular/common": "^2.4.5",

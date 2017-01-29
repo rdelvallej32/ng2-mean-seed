@@ -11,6 +11,7 @@ export default function(app) {
   let env = app.get('env');
 
   if(env === 'development') {
+    app.use(express.static(path.join(config.root, '.tmp')));
   }
 
   if(env === 'production') {
@@ -24,13 +25,13 @@ export default function(app) {
   //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
   // set the path for the client code
   app.set('appPath', path.join(config.root, 'client'));
-  console.log(app.get('appPath'));
+  app.use(express.static(app.get('appPath')));
   app.use(logger('dev'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(cookieParser());
-  console.log(path.join(`${__dirname}`, '../../dist'));
-  app.use(express.static(path.join(`${__dirname}`, '../../dist')));
+  // console.log(path.join(`${__dirname}`, '../../dist'));
+  // app.use(express.static(path.join(`${__dirname}`, '../../dist')));
 
 
   // error handler
