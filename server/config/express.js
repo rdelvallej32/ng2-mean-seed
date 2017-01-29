@@ -6,7 +6,6 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import errorHandler from 'errorhandler';
 import config from './environments';
-import routes from '../routes';
 
 export default function(app) {
   let env = app.get('env');
@@ -28,7 +27,6 @@ export default function(app) {
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(cookieParser());
   console.log(config.root);
-  // app.use('/', routes);
 
   // error handler
   if(env === 'development') {
