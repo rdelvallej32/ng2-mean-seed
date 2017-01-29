@@ -2,7 +2,8 @@
 /*eslint no-process-env:0*/
 
 module.exports = {
+  // MongoDB connection options
   mongo: {
-    uri: process.env.MONGODB_URI || 'mongodb://localhost/<%name of app %>'
+    uri: 'mongodb://localhost/test'
   }
 };
