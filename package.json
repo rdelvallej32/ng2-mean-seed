@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./server/index.js"
+    "start": "node ./server/index.js",
+    "build": "del-cli dist/client/app/js && webpack --config webpack.config.dev.js --progress --profile --watch"
   },
   "dependencies": {
     "@angular/common": "^2.4.5",
@@ -48,6 +49,7 @@
     "eslint": "^3.13.1",
     "html-loader": "^0.4.4",
     "nodemon": "^1.11.0",
+    "raw-loader": "^0.5.1",
     "typescript": "^2.1.5",
     "webpack": "^2.1.0-beta.21",
     "webpack-merge": "^2.6.1"
