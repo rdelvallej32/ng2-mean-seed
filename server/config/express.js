@@ -22,11 +22,16 @@ export default function(app) {
 
   // uncomment after placing your favicon in /public
   //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+  // set the path for the client code
+  app.set('appPath', path.join(config.root, 'client'));
+  console.log(app.get('appPath'));
   app.use(logger('dev'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(cookieParser());
-  console.log(config.root);
+  console.log(path.join(`${__dirname}`, '../../dist'));
+  app.use(express.static(path.join(`${__dirname}`, '../../dist')));
+
 
   // error handler
   if(env === 'development') {
