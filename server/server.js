@@ -5,7 +5,8 @@ import mongoose from 'mongoose';
 mongoose.Promise = require('bluebird');
 import http from 'http';
 import config from './config/environments';
-import routes from './routes';
+import mainRoute from './routes';
+import apiRoutes from './routes/api-routes';
 
 //Connect to MongoDB
 mongoose.connect(config.mongo.uri, config.mongo.options);
@@ -19,7 +20,10 @@ let server = http.createServer(app);
 
 // Require any middleware here
 require('./config/express').default(app);
-app.use('/', routes);
+
+// import routes
+app.use('/', mainRoute);
+app.use('/api', apiRoutes);
 
 // Initialize the server
 function startServer() {
