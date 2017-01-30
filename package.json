@@ -7,7 +7,8 @@
     "clean": "del-cli .tmp",
     "build": "npm run clean && npm run build:server && npm run build:client",
     "build:client": "webpack --config webpack.config.dev.js --progress --profile --watch",
-    "build:server": "babel -d .tmp/server ./server -s"
+    "build:server": "babel -d .tmp/server ./server -s",
+    "watch:server": "nodemon ./server/index.js"
   },
   "dependencies": {
     "@angular/common": "^2.4.5",
