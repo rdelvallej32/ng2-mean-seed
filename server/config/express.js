@@ -29,7 +29,8 @@ export default function(app) {
   //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
   // set the path for the client code
   app.set('appPath', path.join(config.root, 'client'));
-  app.use(express.static(app.get('appPath')));
+  // app.use(express.static(app.get('appPath')));
+  app.use(express.static(config.root));
   app.use(logger('dev'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
