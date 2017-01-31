@@ -5,13 +5,14 @@
   "scripts": {
     "start": "node ./server/index.js",
     "clean": "del-cli .tmp && del-cli dist",
-    "build": "npm run clean && npm run build:server && npm run build:client",
-    "build:client": "webpack --config webpack.config.dev.js --progress --colors --profile --watch",
-    "build:server": "babel -d .tmp/server ./server -s",
-    "build:prod": "del-cli dist/client/app/js && ngc -p tsconfig.aot.json && ngc -p tsconfig.aot.json && webpack --config webpack.config.prod.js --progress --profile --bail && del-cli 'dist/client/app/js/**/*.js' 'dist/client/app/js/**/*.js.map' '!dist/client/app/js/bundle.js' '!dist/client/app/js/*.chunk.js' 'client/app/**/*.ngfactory.ts' 'client/app/**/*.ngsummary.json' 'client/app/**/*.ngstyle.ts' 'client/app/**/*.shim.ts'",
-    "build:prod-server": "del-cli dist/server && babel -d ./dist/server ./server -s && npm run clean:src-map && npm run clean:src-map && npm run build:static-html",
-    "build:static-html": "mkdir dist/server/views && cp server/views/index.hbs dist/server/views",
     "clean:src-map": "del-cli dist/server/**/*.js.map",
+    "build": "npm run clean && npm run build:dev:server && npm run build:dev:client",
+    "build:prod": "npm run build:prod:server && npm run build:prod:client",
+    "build:dev:client": "webpack --config webpack.config.dev.js --progress --colors --profile --watch",
+    "build:dev:server": "babel -d .tmp/server ./server -s",
+    "build:prod:client": "del-cli dist/client/app/js && ngc -p tsconfig.aot.json && ngc -p tsconfig.aot.json && webpack --config webpack.config.prod.js --progress --profile --bail && del-cli 'dist/client/app/js/**/*.js' 'dist/client/app/js/**/*.js.map' '!dist/client/app/js/bundle.js' '!dist/client/app/js/*.chunk.js' 'client/app/**/*.ngfactory.ts' 'client/app/**/*.ngsummary.json' 'client/app/**/*.ngstyle.ts' 'client/app/**/*.shim.ts'",
+    "build:prod:server": "del-cli dist/server && babel -d ./dist/server ./server -s && npm run clean:src-map && npm run clean:src-map && npm run build:static-html",
+    "build:static-html": "mkdir dist/server/views && cp server/views/index.hbs dist/server/views",
     "watch:server": "nodemon ./server/index.js"
   },
   "dependencies": {
