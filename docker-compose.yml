@@ -2,7 +2,7 @@ version: '2'
 
 # Define the services/containers to be run
 services:
-  nodeapp: # name of service
+  node-server: # name of service
     build: . # specify directory of the Dockerfile
     ports:
       - "3000:3000"
