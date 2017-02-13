@@ -28,6 +28,7 @@
     "@angular/platform-server": "^2.4.5",
     "@angular/router": "^3.4.5",
     "@angular/upgrade": "^2.4.5",
+    "@types/socket.io-client": "^1.4.29",
     "bluebird": "^3.4.7",
     "body-parser": "~1.15.2",
     "compression": "^1.6.2",
@@ -42,6 +43,8 @@
     "morgan": "~1.7.0",
     "rxjs": "^5.0.3",
     "serve-favicon": "~2.3.0",
+    "socket.io": "^1.7.2",
+    "socket.io-client": "^1.7.2",
     "zone.js": "^0.7.6"
   },
   "devDependencies": {
