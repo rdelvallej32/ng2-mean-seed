@@ -17,9 +17,11 @@ mongoose.connection.on('error', err => {
 
 let app = express();
 let server = http.createServer(app);
+let io = require('socket.io').listen(server);
 
 // Require any middleware here
 require('./config/express').default(app);
+require('./config/socket-io').default(io);
 
 // import routes
 app.use('/', mainRoute);
