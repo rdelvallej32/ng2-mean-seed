@@ -13,6 +13,9 @@ COPY package.json /usr/src/app
 # Install dependencies
 RUN npm install
 
+# Install nodemon for development
+RUN npm install --global nodemon
+
 # Get all code needed to run the app
 COPY . /usr/src/app
 
@@ -23,4 +26,4 @@ EXPOSE 3000
 ENV MONGODB_URI_DEV='mongodb://database/mean-docker'
 
 # Serve the app
-CMD ["npm", "start"]
+# CMD ["npm", "start"]
