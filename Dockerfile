@@ -27,3 +27,6 @@ ENV MONGODB_URI_DEV='mongodb://database/mean-docker'
 
 # Serve the app
 # CMD ["npm", "start"]
+
+# Or serve it with nodemon running
+CMD ["nodemon", "-L", "/server/index" ]

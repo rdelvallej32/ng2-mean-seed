@@ -6,6 +6,8 @@ services:
     build: . # specify directory of the Dockerfile
     ports:
       - "3000:3000"
+    volumes:
+      - .:/usr/src/app
     links:
       - database # link service to database service
 
