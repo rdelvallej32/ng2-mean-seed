@@ -7,11 +7,15 @@ import bodyParser from 'body-parser';
 import errorHandler from 'errorhandler';
 import compression from 'compression';
 import config from './environments';
+import webpackMiddlewareConfig from './webpack-middleware-config';
 
 export default function(app) {
   let env = app.get('env');
 
   if(env === 'development') {
+    let webpackHotMiddleware = require('webpack-hot-middleware');
+    app.use(webpackMiddlewareConfig.middleware);
+    app.use(webpackHotMiddleware(webpackMiddlewareConfig.compiler));
     app.use(express.static(path.join(config.root, '.tmp')));
   }
 
