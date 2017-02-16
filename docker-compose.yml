@@ -1,0 +1,17 @@
+version: '2'
+
+# Define the services/containers to be run
+services:
+  node-server: # name of service
+    build: . # specify directory of the Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+    links:
+      - database # link service to database service
+
+  database:
+    image: mongo
+    ports:
+      - "27017:27017"
