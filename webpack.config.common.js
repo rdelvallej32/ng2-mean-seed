@@ -4,15 +4,17 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    app: './client/app/main.ts'
+    'polyfills': './client/app/polyfills.ts',
+    'vendor': './client/app/vendor.ts',
+    'app': './client/app/main.ts',
   },
 
   resolve: {
-    extensions: ['.js', '.ts']
+    extensions: ['.js', '.ts', '.json']
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.ts$/,
         loaders: [
@@ -20,6 +22,10 @@ module.exports = {
           'angular2-template-loader',
           'angular2-router-loader'
         ]
+      },
+      {
+        test: /\.json$/,
+        use: 'json-loader'
       },
       {
         test: /\.html$/,
@@ -41,6 +47,7 @@ module.exports = {
             // The (\\|\/) piece accounts for path separators in *nix and Windows
             /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
             './src' // location of your src
-        )
+        ),
+    // new webpack.optimize.CommonsChunkPlugin({name: ['app', 'vendor', 'polyfills']})
   ]
 };
