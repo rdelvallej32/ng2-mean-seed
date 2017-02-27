@@ -7,15 +7,15 @@ import bodyParser from 'body-parser';
 import errorHandler from 'errorhandler';
 import compression from 'compression';
 import config from './environments';
-import webpackMiddlewareConfig from './webpack-middleware-config';
+// import webpackMiddlewareConfig from './webpack-middleware-config';
 
 export default function(app) {
   let env = app.get('env');
 
   if(env === 'development') {
-    let webpackHotMiddleware = require('webpack-hot-middleware');
-    app.use(webpackMiddlewareConfig.middleware);
-    app.use(webpackHotMiddleware(webpackMiddlewareConfig.compiler));
+    // let webpackHotMiddleware = require('webpack-hot-middleware');
+    // app.use(webpackMiddlewareConfig.middleware);
+    // app.use(webpackHotMiddleware(webpackMiddlewareConfig.compiler));
     app.use(express.static(path.join(config.root, '.tmp')));
   }
 
@@ -34,7 +34,7 @@ export default function(app) {
   // set the path for the client code
   app.set('appPath', path.join(config.root, 'client'));
   // app.use(express.static(app.get('appPath')));
-  app.use(express.static(config.root));
+  // app.use(express.static(config.root));
   app.use(logger('dev'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
