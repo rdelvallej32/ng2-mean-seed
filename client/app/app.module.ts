@@ -1,20 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
+import { HeaderModule } from './common/header/header.module';
 
 import { AppComponent } from './app.component';
 
-import { HeaderComponent } from './common/header/header.component';
-
 @NgModule({
     declarations: [
-        AppComponent,
-        HeaderComponent
+        AppComponent
     ],
     imports: [
         BrowserModule,
-        CommonModule,
+        HeaderModule,
         RouterModule.forRoot([])
     ],
     bootstrap: [
