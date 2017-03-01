@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+
 import { AppComponent } from './app.component';
 
 import { HeaderComponent } from './common/header/header.component';
@@ -10,7 +12,8 @@ import { HeaderComponent } from './common/header/header.component';
         HeaderComponent
     ],
     imports: [
-        BrowserModule
+        BrowserModule,
+        RouterModule.forRoot([])
     ],
     bootstrap: [
         AppComponent
