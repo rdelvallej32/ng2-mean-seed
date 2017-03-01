@@ -11,11 +11,19 @@ import { MenuType } from './header.model';
 export class HeaderComponent implements OnInit {
     public menuItems: any[];
     public brandMenu: any;
+    public isCollapsed: Boolean = true;
 
     ngOnInit() {
         this.menuItems = ROUTES.filter(menuItem => menuItem.menuType !== MenuType.BRAND);
         this.brandMenu = ROUTES.filter(menuItem => menuItem.menuType === MenuType.BRAND)[0];
-        console.log(this.menuItems);
+    }
+
+    toggle() {
+        if (this.isCollapsed) {
+            this.isCollapsed = false;
+        } else {
+            this.isCollapsed = true;
+        }
     }
 
 }
