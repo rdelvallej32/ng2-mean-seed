@@ -1,4 +1,4 @@
-import { MenuType, RouteInfo } from './header.model';
+import { MenuType, RouteInfo } from './navbar.model';
 
 export const ROUTES: RouteInfo[] = [
     { path: '', title: 'App Brand Here', menuType: MenuType.BRAND },

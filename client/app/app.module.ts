@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
-import { HeaderModule } from './common/header/header.module';
+import { NavbarModule } from './common/navbar/navbar.module';
 
 import { AppComponent } from './app.component';
 
@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
     ],
     imports: [
         BrowserModule,
-        HeaderModule,
+        NavbarModule,
         RouterModule.forRoot([])
     ],
     bootstrap: [

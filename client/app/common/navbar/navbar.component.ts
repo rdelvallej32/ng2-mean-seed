@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ROUTES } from './header-routes';
-import { MenuType } from './header.model';
+import { ROUTES } from './navbar-routes';
+import { MenuType } from './navbar.model';
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.scss']
+    selector: 'navbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.scss']
 })
 
-export class HeaderComponent implements OnInit {
+export class NavbarComponent implements OnInit {
     public menuItems: any[];
     public brandMenu: any;
     public isCollapsed: Boolean = true;
